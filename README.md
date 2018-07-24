@@ -1,9 +1,9 @@
 ## serachflightdemo
 
-You need to Java 8 to run demo 
-project uses spring boot and gradle build tools 
-you can run "./gradlew bootrun" command to run project. it will start server with end point http://localhost:9090/searchFlights/{origin}/{destination}
-if face error while running change port no, to different in "/src/main/resources/application.properties" file.
+- You need Java 8 to run demo. 
+- project uses spring boot and gradle build tools. 
+- you can run "./gradlew bootrun" command, it will start server with end point http://localhost:9090/searchFlights/{origin}/{destination}
+- if you face error while starting server change port No (default 9090), to different one in the file "/src/main/resources/application.properties".
 
 ### classes 
 * *SearchFlightController* - Spring RestController which expose one method for serving request.
