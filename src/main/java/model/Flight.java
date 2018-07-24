@@ -96,17 +96,19 @@ public class Flight implements Comparable<Flight> {
 	@Override
 	public String toString() {
 		String formatdepartureTime=String.valueOf(departureTime);
-		String formatdestinationTime=String.valueOf(departureTime);
+		String formatdestinationTime=String.valueOf(destinationTime);
+		String formatPrice=String.valueOf(price);
 		try {
 			  formatdepartureTime = Utils.formatDate(departureTime);
 			  formatdestinationTime = Utils.formatDate(destinationTime);
+			  formatPrice = Utils.formatPrice(price);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 			
 			return  origin + " --> " + destination + " (" + formatdepartureTime
-					+ " --> " + formatdestinationTime + ") - $" + price ;
+					+ " --> " + formatdestinationTime + ") - " + formatPrice ;
 		
 	}
 	@Override

@@ -1,6 +1,7 @@
 package com.ajeet.booking;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,7 +16,7 @@ import model.Flight;
 
 @Component
 public class FlightRepo {
-	List<DataFileReader> dataSource = new ArrayList<>();
+	private List<DataFileReader> dataSource = new ArrayList<>();
 
 	public FlightRepo() {
 		super();
@@ -25,11 +26,14 @@ public class FlightRepo {
 		
 	}
 	
-public	Set<Flight> searchFlights(String origin,String destination){
+public	List<Flight> searchFlights(String origin,String destination){
 		Set<Flight> flights =new HashSet<>();
 		for (DataFileReader ds : dataSource) {
 			flights.addAll(ds.searchResult(origin, destination));
 		}
-		return flights;
+		List<Flight> list = new ArrayList<>();
+		list.addAll(flights);
+		Collections.sort(list);
+		return list;
 	}
 }

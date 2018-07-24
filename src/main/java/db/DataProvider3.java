@@ -25,7 +25,7 @@ public class DataProvider3 extends DataFileReader {
 			java.io.File file = new ClassPathResource(fileName).getFile();
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			for (String line = br.readLine(); line != null; line = br.readLine()) {
-				String[] splitData = line.split("|");
+				String[] splitData = line.split("\\|");
 				if(splitData.length>4){
 					if(splitData[0].trim().equals(oringin.trim()) && splitData[2].trim().equals(destination.trim())){
 						long departTime = Utils.parase1(splitData[1].trim());					

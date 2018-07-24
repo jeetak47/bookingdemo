@@ -1,5 +1,7 @@
 package util;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,7 +13,9 @@ public class Utils {
 	
 	//6-21-2014 17:55:00
 	private static String PATTERN2="M-dd-yyyy H:mm:ss";
-		
+	
+	private static NumberFormat numFormatter = new DecimalFormat("#0.00");
+	
 	static SimpleDateFormat formatter1 = new SimpleDateFormat(PATTERN1);
 	
 	static SimpleDateFormat formatter2 = new SimpleDateFormat(PATTERN2);
@@ -32,5 +36,11 @@ public class Utils {
 	public static double currencyParse(String value) throws ParseException {
         return  Double.valueOf(value.substring(1));
     }
+	
+	public static String formatPrice(double price) throws ParseException{
+		return "$"+numFormatter.format(price);
+	}
 
+	
+	
 }
